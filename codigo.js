@@ -52,3 +52,82 @@ function agregarAutobuses(cantidad, capacidadMaxima, flota) {
     flota.push(autobus);
   }
 }
+  
+  // Función para mostrar el menú del programa
+  function mostrarMenu() {
+    const menu = `----- Menú -----\n
+  1. Agregar autobuses a la flota
+  2. Asignar ruta a un autobús
+  3. Subir pasajeros a un autobús
+  4. Descargar pasajeros de un autobús
+  5. Mostrar información de un autobús
+  6. Salir`;
+  
+    alert(menu);
+  }
+  
+  // Función principal del programa
+  function main() {
+    const flota = [];
+    let opcion;
+  
+    do {
+      mostrarMenu();
+      opcion = parseInt(prompt("Seleccione una opción:"));
+  
+      switch (opcion) {
+        case 1:
+          const cantidadAutobuses = parseInt(prompt("Ingrese la cantidad de autobuses a agregar:"));
+          const capacidadMaxima = parseInt(prompt("Ingrese la capacidad máxima de los autobuses:"));
+          agregarAutobuses(cantidadAutobuses, capacidadMaxima, flota);
+          break;
+        case 2:
+          const numeroAutobus = parseInt(prompt("Ingrese el número del autobús:"));
+          const rutaAsignada = prompt("Ingrese la ruta a asignar:");
+          const autobus = flota.find((bus) => bus.numero === numeroAutobus);
+          if (autobus) {
+            autobus.asignarRuta(rutaAsignada);
+          } else {
+            alert(`No se encontró el autobús con número ${numeroAutobus}.`);
+          }
+          break;
+        case 3:
+          const numeroAutobusSubir = parseInt(prompt("Ingrese el número del autobús:"));
+          const cantidadPasajerosSubir = parseInt(prompt("Ingrese la cantidad de pasajeros a subir:"));
+          const autobusSubir = flota.find((bus) => bus.numero === numeroAutobusSubir);
+          if (autobusSubir) {
+            autobusSubir.subirPasajeros(cantidadPasajerosSubir);
+          } else {
+            alert(`No se encontró el autobús con número ${numeroAutobusSubir}.`);
+          }
+          break;
+        case 4:
+          const numeroAutobusDescargar = parseInt(prompt("Ingrese el número del autobús:"));
+          const cantidadPasajerosDescargar = parseInt(prompt("Ingrese la cantidad de pasajeros a descargar:"));
+          const autobusDescargar = flota.find((bus) => bus.numero === numeroAutobusDescargar);
+          if (autobusDescargar) {
+            autobusDescargar.descargarPasajeros(cantidadPasajerosDescargar);
+          } else {
+            alert(`No se encontró el autobús con número ${numeroAutobusDescargar}.`);
+          }
+          break;
+        case 5:
+          const numeroAutobusInfo = parseInt(prompt("Ingrese el número del autobús:"));
+          const autobusInfo = flota.find((bus) => bus.numero === numeroAutobusInfo);
+          if (autobusInfo) {
+            autobusInfo.obtenerInformacion();
+          } else {
+            alert(`No se encontró el autobús con número ${numeroAutobusInfo}.`);
+          }
+          break;
+        case 6:
+          alert("Gracias por utilizar el servicio de autobuses. ¡Hasta luego!");
+          break;
+        default:
+          alert("Opción inválida. Por favor, ingrese una opción válida.");
+      }
+    } while (opcion !== 6);
+  }
+  
+  // Ejecutar el programa
+  main();c
