@@ -53,18 +53,6 @@ function agregarAutobuses(cantidad, capacidadMaxima, flota) {
   }
 }
   
-  // Función para mostrar el menú del programa
-  function mostrarMenu() {
-    const menu = `----- Menú -----\n
-  1. Agregar autobuses a la flota
-  2. Asignar ruta a un autobús
-  3. Subir pasajeros a un autobús
-  4. Descargar pasajeros de un autobús
-  5. Mostrar información de un autobús
-  6. Salir`;
-  
-    alert(menu);
-  }
   
   // Función principal del programa
   function main() {
@@ -72,8 +60,13 @@ function agregarAutobuses(cantidad, capacidadMaxima, flota) {
     let opcion;
   
     do {
-      mostrarMenu();
-      opcion = parseInt(prompt("Seleccione una opción:"));
+      opcion = parseInt(prompt(`----- bienvenido al servicio de buses -----\nSeleccione una opción:\n
+      1. Agregar autobuses a la flota
+      2. Asignar ruta a un autobús
+      3. Subir pasajeros a un autobús
+      4. Descargar pasajeros de un autobús
+      5. Mostrar información de un autobús
+      6. Salir`));
   
       switch (opcion) {
         case 1:
