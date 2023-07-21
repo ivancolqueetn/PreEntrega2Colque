@@ -61,7 +61,7 @@ function agregarAutobuses(cantidad, capacidadMaxima, flota) {
   
     do {
       opcion = parseInt(prompt(`----- bienvenido al servicio de buses -----\nSeleccione una opción:\n
-      1. Agregar autobuses a la flota
+      1. Agregar numero de buses y capacidad
       2. Asignar ruta a un autobús
       3. Subir pasajeros a un autobús
       4. Descargar pasajeros de un autobús
@@ -123,4 +123,4 @@ function agregarAutobuses(cantidad, capacidadMaxima, flota) {
   }
   
   // Ejecutar el programa
-  main();c
+  main();
